@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-
+lista = ["de Arica y Parinacota", "de Tarapacá","de Antofagasta","de Atacama","de Coquimbo","de Valparaíso","Metropolitana de Santiago","del Libertador Gral.Bernardo O’Higgins","del Maule","del Ñuble","del BioBio","de la Araucanía","de Los Ríos","de los Lagos","Aisén del Gral.Carlos Ibáñez del Campo","de Magallanes y la Antártica Chilena"]
 
 def mostrarregiones():
   print("\n")
   print("      Elige una región: ")
   j = 0
-  for i in range(15):
+  for i in range(16):
     j = j + 1 
     print(j,end='.')
     print(" Región",lista[i])
@@ -44,7 +44,10 @@ def pedirNumeroEntero():
     if not num == 17:
       print("Elegiste: Región",lista[num-1])
     return num
-    
+def mostrargrafico():
+    print("hola")
+
+
 salir = False
 opcion = 0
 
@@ -53,72 +56,13 @@ while not salir:
     mostrarregiones()
     opcion = pedirNumeroEntero()
 
-    if opcion == 1:
+    for i in range(16) :
+      if opcion == i:
         pedirRespGraf()  
         grafico()
-        
-    elif opcion == 2:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 3:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 4:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 5:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 6:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 7:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 8:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 9:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 10:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 11:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 12:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 13:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 14:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 15:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 16:
-        pedirRespGraf()  
-        grafico()
-        
-    elif opcion == 17:
-        salir = True
+        mostrargrafico()
+      elif opcion == 17:
+          salir = True
 
     else:
         print("Introduce un numero entre 1 y 17")
