@@ -31,8 +31,8 @@ def grafico():
   if grafico == 2:
     print("hola soy un grafico  con síntomas acumulativos")     
   return grafico
+  
 def pedirNumeroEntero():
-
     correcto = False
     num = 0
     while (not correcto):
@@ -41,30 +41,30 @@ def pedirNumeroEntero():
             correcto = True
         except ValueError:
             print('Error, introduce una región valida')
-    if not num == 17:
+    if num < 17:
       print("Elegiste: Región",lista[num-1])
     return num
-def mostrargrafico():
-    print("hola")
+def mostrargrafico(region):
+    print("hola soy un grafico de la región ",lista[region-1])
 
-
-salir = False
 opcion = 0
 
-while not salir:
-    
+def llamadografico(a):
+  if a <17:
+    pedirRespGraf()  
+    grafico()
+    mostrargrafico(a)
+        
+
+while True:
     mostrarregiones()
-    opcion = pedirNumeroEntero()
+    opcion=pedirNumeroEntero()
+    if opcion==17:
+        break
+    if opcion>17:
+        print("\nPon un numero entre el 1 y el 17")
+        break
+    llamadografico(opcion)
 
-    for i in range(16) :
-      if opcion == i:
-        pedirRespGraf()  
-        grafico()
-        mostrargrafico()
-      elif opcion == 17:
-          salir = True
-
-    else:
-        print("Introduce un numero entre 1 y 17")
 
 print("Fin")
