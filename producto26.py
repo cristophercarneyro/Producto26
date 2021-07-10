@@ -68,3 +68,146 @@ while True:
 
 
 print("Fin")
+
+df = open("CasosNuevosConSintomas.csv", "r")
+
+fechas = []
+region1 = []
+region2 = []
+region3 = []
+region4 = []
+region5 = []
+region6 = []
+region7 = []
+region8 = []
+region9 = []
+region10 = []
+region11 = []
+region12 = []
+region13 = []
+region14 = []
+region15 = []
+total16 = []
+
+fechas1 = df.readlines(1)
+for i in range(len(fechas1)):
+  df2 =  fechas1[i]
+  df2 = df2.split(",")
+  fechas.append(df2)
+  print("\n",fechas[0][100])
+  x1 = fechas[0][100]
+  x2 = x1 + fechas[0][101]
+  x14 =fechas[0][114]
+datafile2 = df.readlines(2)
+for i in range(len(datafile2)):
+  df2 =  datafile2[i]
+  df2 = df2.split(",")
+  region1.append(df2)
+  print("\n",region1[0][0],":", region1[0][100])
+
+datafile3 = df.readlines(3)
+for i in range(len(datafile3)):
+  df2 =  datafile3[i]
+  df2 = df2.split(",")
+  region2.append(df2)
+  print("\n",region2[0][100])
+  
+datafile4 = df.readlines(4)
+for i in range(len(datafile4)):
+  df2 =  datafile4[i]
+  df2 = df2.split(",")
+  region3.append(df2)
+  print("\n",region3[0][100])
+  
+datafile5 = df.readlines(5)
+for i in range(len(datafile5)):
+  df2 =  datafile5[i]
+  df2 = df2.split(",")
+  region4.append(df2)
+  print("\n",region4[0][100])  
+
+datafile6 = df.readlines(6)
+for i in range(len(datafile6)):
+  df2 =  datafile6[i]
+  df2 = df2.split(",")
+  region5.append(df2)
+print("\n",region5[0][100]) 
+  
+datafile7 = df.readlines(7)
+for i in range(len(datafile7)):
+  df2 =  datafile7[i]
+  df2 = df2.split(",")
+  region6.append(df2)
+  print("\n",region6[0][100])
+
+datafile8 = df.readlines(8)
+for i in range(len(datafile8)):
+  df2 =  datafile8[i]
+  df2 = df2.split(",")
+  region7.append(df2)
+  print("\n",region7[0][100])
+
+datafile9 = df.readlines(9)
+for i in range(len(datafile9)):
+  df2 =  datafile9[i]
+  df2 = df2.split(",")
+  region8.append(df2)
+  print("\n",region8[0][100])
+  
+datafile10 = df.readlines(10)
+for i in range(len(datafile10)):
+  df2 =  datafile10[i]
+  df2 = df2.split(",")
+  region9.append(df2)
+  print("\n",region9[0][100])
+  
+datafile11 = df.readlines(11)
+for i in range(len(datafile11)):
+  df2 =  datafile11[i]
+  df2 = df2.split(",")
+  region10.append(df2)
+  print("\n",region10[0][100])
+
+datafile12 = df.readlines(12)
+for i in range(len(datafile12)):
+  df2 =  datafile12[i]
+  df2 = df2.split(",")
+  region11.append(df2)
+  print("\n",region11[0][100])
+
+datafile13 = df.readlines(13)
+for i in range(len(datafile13)):
+  df2 =  datafile13[i]
+  df2 = df2.split(",")
+  region12.append(df2)
+  print("\n",region12[0][100])
+
+datafile14 = df.readlines(14)
+for i in range(len(datafile14)):
+  df2 =  datafile14[i]
+  df2 = df2.split(",")
+  region13.append(df2)
+  print("\n",region13[0][100])
+  
+datafile15 = df.readlines(15)
+for i in range(len(datafile15)):
+  df2 =  datafile15[i]
+  df2 = df2.split(",")
+  region14.append(df2)
+  print("\n",region14[0][100])
+
+datafile16 = df.readlines(16)
+for i in range(len(datafile16)):
+  df2 =  datafile16[i]
+  df2 = df2.split(",")
+  region15.append(df2)
+  print("\n",region15[0][100])
+  
+datafile16 = df.readlines(16)
+for i in range(len(datafile16)):
+  df2 =  datafile16[i]
+  df2 = df2.split(",")
+  total16.append(df2)
+  print("\n",total16[0][100])
+
+  
