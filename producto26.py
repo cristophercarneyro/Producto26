@@ -50,6 +50,43 @@ def datosGraficosRegion(region):
     plt.show()
     return casos,fechas,region,xe,xa
 
+def datosGraficosRegion2(region):
+    df = open("CasosNuevosConSintomas.csv", "r") #Asignamos fechas1 a la lectura de la primera línea, en este caso, la de todas las fechas.
+    casos=[]
+    region1 = []
+    fechas1 = []
+    for i in range(18):
+        datafile2 = df.readlines(i)
+        for i in range(len(datafile2)):
+          df2 =  datafile2[i]
+          df2 = df2.split(",")
+          region1.append(df2)
+    for i in range(1,15):
+      xe = region1[0][-i]
+      xe = xe.replace("2021","21")
+      fechas1.append(xe)
+
+    for i in range(2,16):
+      xa = region1[region][-i]
+      xa = xa.replace(".0","")
+      xa = int(xa)
+      print(xa)
+      casos.append(xa) 
+    suma =sum(casos)
+    print("suma: ", suma)
+    j= 0
+    i = 0
+    suma1 = [0]
+    for i in range(0,len(casos)):
+        suma = casos[i] +  suma1[j]
+        suma1.append(suma)
+        print("1:", suma1)
+        j = j +1
+    del suma1[0]
+    y = suma1
+    x = fechas1
+    plt.bar(x,y)
+    plt.show()
 
 def grafico(regiona):#Creamos un def para mostrar los gráficos
   print("\n")
@@ -68,6 +105,7 @@ def grafico(regiona):#Creamos un def para mostrar los gráficos
     print("hola soy un grafico  con sintomas no acumulativos ")
     print("hola soy un grafico de la región ",lista[regiona-1])
   if grafico == 2:
+    datosGraficosRegion2(regiona)
     print("hola soy un grafico  con síntomas acumulativos",regiona)     
     print("hola soy un grafico de la región ",lista[regiona-1])
   
