@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt 
 lista = ["de Arica y Parinacota(15)", "de Tarapacá","de Antofagasta","de Atacama","de Coquimbo","de Valparaíso","Metropolitana de Santiago","del Libertador Gral.Bernardo O’Higgins","del Maule","del Ñuble","del BioBio","de la Araucanía","de Los Ríos","de los Lagos","Aisén del Gral.Carlos Ibáñez del Campo","de Magallanes y la Antártica Chilena"] #Agregamos cada región a una lista
+
 def mostrarregiones(): #creamos un def para dar la opción del gráfico que se desea ver.
   print("\n") #salto de línea
   print("      Elige una región: ") 
@@ -10,6 +11,7 @@ def mostrarregiones(): #creamos un def para dar la opción del gráfico que se d
     print(" Región",lista[i])#para imprimir "región" coma, cada elemento de  lista
   print("17. Salir") # para dar la opción al usuario de salir de la búsqueda
   print("\n")
+
 def pedirNumeroEntero(): #Creamos un def para verificar que el número ingresado es válido
     correcto = False #asignamos "correcto" al valor booleano False
     num = 0 
@@ -23,9 +25,8 @@ def pedirNumeroEntero(): #Creamos un def para verificar que el número ingresado
       print("Elegiste: Región",lista[num-1]) #se imprime Elegiste: Región, y la región escogida por el usuario. 
     return num
 
-def datosGraficosRegion(region):
+def datosGraficosRegionNoacumulativa(region):
     df = open("CasosNuevosConSintomas.csv", "r") #Asignamos fechas1 a la lectura de la primera línea, en este caso, la de todas las fechas.
-    fechas = []
     casos=[]
     region1 = []
     fechas1 = []
@@ -48,9 +49,10 @@ def datosGraficosRegion(region):
     x = fechas1
     plt.bar(x,y)
     plt.show()
-    return casos,fechas,region,xe,xa
-
-def datosGraficosRegion2(region):
+    plt.ylabel('Casos nuevos')
+    plt.xlabel('Ultimos 14 días')
+    
+def datosGraficosRegionNoacumulativa(region):
     df = open("CasosNuevosConSintomas.csv", "r") #Asignamos fechas1 a la lectura de la primera línea, en este caso, la de todas las fechas.
     casos=[]
     region1 = []
@@ -70,28 +72,26 @@ def datosGraficosRegion2(region):
       xa = region1[region][-i]
       xa = xa.replace(".0","")
       xa = int(xa)
-      print(xa)
       casos.append(xa) 
-    suma =sum(casos)
-    print("suma: ", suma)
     j= 0
     i = 0
     suma1 = [0]
     for i in range(0,len(casos)):
         suma = casos[i] +  suma1[j]
         suma1.append(suma)
-        print("1:", suma1)
         j = j +1
     del suma1[0]
     y = suma1
     x = fechas1
     plt.bar(x,y)
     plt.show()
-
+    plt.ylabel('Casos nuevos')
+    plt.xlabel('Ultimos 14 días')
+        
 def grafico(regiona):#Creamos un def para mostrar los gráficos
   print("\n")
-  print ("1. Mostrar un gráfico de contagiados con síntomas NO acumulativos")
-  print("2. Mostrar un gráfico de contagiados con síntomas acumulativos")
+  print ("1. Mostrar un gráfico de contagiados con síntomas acumulativos")
+  print("2. Mostrar un gráfico de contagiados con síntomas NO acumulativos")
   grafico = 0
   correcto = False
   while (not correcto): #Para verificar que ingresó el dato solicitado
@@ -100,16 +100,10 @@ def grafico(regiona):#Creamos un def para mostrar los gráficos
           correcto = True
       except ValueError:
           print('Error, introduce un grafico valido')
-  if grafico == 1: 
-    datosGraficosRegion(regiona)
-    print("hola soy un grafico  con sintomas no acumulativos ")
-    print("hola soy un grafico de la región ",lista[regiona-1])
-  if grafico == 2:
-    datosGraficosRegion2(regiona)
-    print("hola soy un grafico  con síntomas acumulativos",regiona)     
-    print("hola soy un grafico de la región ",lista[regiona-1])
-  
-  return grafico,regiona
+  if grafico == 2: 
+    datosGraficosRegionNoacumulativa(regiona)
+  if grafico == 1:
+    datosGraficosRegionNoacumulativa(regiona)
   
 opcion = 0  
 while True:
