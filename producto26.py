@@ -25,7 +25,7 @@ def pedirNumeroEntero(): #Creamos un def para verificar que el número ingresado
       print("Elegiste: Región",lista[num-1]) #se imprime Elegiste: Región, y la región escogida por el usuario. 
     return num
 
-def datosGraficosRegionNoacumulativa(region):
+def datosGraficosRegionanocumulativa(region):
     df = open("CasosNuevosConSintomas.csv", "r") #Asignamos fechas1 a la lectura de la primera línea, en este caso, la de todas las fechas.
     casos=[]
     region1 = []
@@ -51,8 +51,9 @@ def datosGraficosRegionNoacumulativa(region):
     plt.show()
     plt.ylabel('Casos nuevos')
     plt.xlabel('Ultimos 14 días')
-    
-def datosGraficosRegionNoacumulativa(region):
+
+    return plt    
+def datosGraficosRegionacumulativa(region):
     df = open("CasosNuevosConSintomas.csv", "r") #Asignamos fechas1 a la lectura de la primera línea, en este caso, la de todas las fechas.
     casos=[]
     region1 = []
@@ -87,6 +88,8 @@ def datosGraficosRegionNoacumulativa(region):
     plt.show()
     plt.ylabel('Casos nuevos')
     plt.xlabel('Ultimos 14 días')
+
+    return plt
         
 def grafico(regiona):#Creamos un def para mostrar los gráficos
   print("\n")
@@ -101,9 +104,9 @@ def grafico(regiona):#Creamos un def para mostrar los gráficos
       except ValueError:
           print('Error, introduce un grafico valido')
   if grafico == 2: 
-    datosGraficosRegionNoacumulativa(regiona)
+    datosGraficosRegionacumulativa(regiona)
   if grafico == 1:
-    datosGraficosRegionNoacumulativa(regiona)
+    datosGraficosRegionanocumulativa(regiona)
   
 opcion = 0  
 while True:
