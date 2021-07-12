@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt 
-lista = ["de Arica y Parinacota(15)", "de Tarapacá","de Antofagasta","de Atacama","de Coquimbo","de Valparaíso","Metropolitana de Santiago","del Libertador Gral.Bernardo O’Higgins","del Maule","del Ñuble","del BioBio","de la Araucanía","de Los Ríos","de los Lagos","Aisén del Gral.Carlos Ibáñez del Campo","de Magallanes y la Antártica Chilena"] #Agregamos cada región a una lista
-
+lista = ["de Arica y Parinacota(15)", "de Tarapacá(01)","de Antofagasta(02)","de Atacama(03)","de Coquimbo(04)","de Valparaíso(05)","Metropolitana de Santiago(13)","del Libertador Gral.Bernardo O’Higgins(06)","del Maule(07)","del Ñuble(16)","del BioBio(08)","de la Araucanía(09)","de Los Ríos(14)","de los Lagos(10)","Aisén del Gral.Carlos Ibáñez del Campo(11)","de Magallanes y la Antártica Chilena(12)"] #Agregamos cada región a una lista
+lista2=["(15)","(01)","(02)","(03)","(04)","(05)","(13)","(06)","(07)","(16)","(08)","(09)","14","(10)","(11)","(12)"]
 def mostrarregiones(): #creamos un def para dar la opción del gráfico que se desea ver.
   print("\n") #salto de línea
   print("      Elige una región: ") 
@@ -10,14 +10,20 @@ def mostrarregiones(): #creamos un def para dar la opción del gráfico que se d
     print(j,end='.')
     print(" Región",lista[i])#para imprimir "región" coma, cada elemento de  lista
   print("17. Salir") # para dar la opción al usuario de salir de la búsqueda
+  print("INGRESAR: EL CODIGO CON LOS PARENTECIS")
   print("\n")
 
 def pedirNumeroEntero(): #Creamos un def para verificar que el número ingresado es válido
     correcto = False #asignamos "correcto" al valor booleano False
-    num = 0 
     while (not correcto): 
         try:
-            num = int(input("ingrese la región a elección: "))#se intenta transformar el valor ingresado por el usuario a entero
+            num = input("ingrese la región a elección: ")#se intenta transformar el valor ingresado por el usuario a entero
+            j = 0
+            for i in range(len(lista2)):
+              j = j + 1
+              num = num.replace(lista2[i], str(j) )
+
+            num = int(num)
             correcto = True #correcto cambia de valor booleano a True
         except ValueError: 
             print('Error, introduce una región valida')
